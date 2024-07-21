@@ -1,14 +1,15 @@
-import { Inconsolata } from "next/font/google";
-import "./globals.css";
 import Link from "next/link";
-
+import "./globals.css";
+import { Inconsolata } from "next/font/google";
+//font
 const fnt = Inconsolata({ subsets: ["latin"] });
-
+//metaInfo
 export const metadata = {
   title: "Reading Recorder",
   description: "自分が読んだ書籍の記録を残すためのアプリ",
 };
-Link;
+//html&body&header
+//{children}内にmainが入る
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">

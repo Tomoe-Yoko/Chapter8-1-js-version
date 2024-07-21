@@ -1,7 +1,18 @@
 import React from "react";
+import BookDetails from "@/components/BookDetails";
+import FormEdit from "@/components/FormEdit";
+import { getBookById, getReviewById } from "@/lib/getter";
 
-const EditPage = ({ params }) => {
-  return <p>No.{params.id}のレビューを表示</p>;
-};
+export default async function EditPage({ params }) {
+  const book = await getBookById(params.id);
+  const review = await getReviewById(params.id);
+  const read = (review?.read || new Date()).toLocaleDateString("sv-SE");
 
-export default EditPage;
+  return (
+    <div id="form">
+      <BookDetails book={book} />
+      <hr />
+      <FormEdit src={{ id: book.id, read, memo: review?.memo }} />
+    </div>
+  );
+}

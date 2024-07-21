@@ -1,6 +1,6 @@
+// import React from "react";
 import Link from "next/link";
 import BookDetails from "./BookDetails";
-import React from "react";
 
 const LinkedBookDetails = ({ index, book }) => {
   return (
